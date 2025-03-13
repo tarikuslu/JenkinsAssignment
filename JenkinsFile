@@ -9,8 +9,8 @@ pipeline {
         }
         stage('Setup') {
             steps {
-                sh 'sudo pip3 install selenium'
-                sh 'sudo yum install -y chromium chromedriver'
+                sh 'pip3 install selenium'
+                sh 'yum install -y chromium chromedriver'
             }
         }
         stage('Test') {
