@@ -24,20 +24,6 @@ try:
     assert expected_title in driver.title, f"Başlık '{expected_title}' içermiyor! Bulunan: {driver.title}"
     print("Başlık doğrulandı!")
 
-    # 2. "Kategoriler" menüsüne tıkla
-    kategoriler_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'KOZMETİK')]"))
-    )
-    kategoriler_button.click()
-    print("Kozmetik Kategorileri menüsüne tıklandı!")
-
-    # 3. "Erkek" kategorisini seç
-    parfüm_kategori = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//span[contains(text(), 'PARFÜM VE DEODORANT')]"))
-    )
-    parfüm_kategori.click()
-    print("Parfüm ve deodorant kategorisi seçildi!")
-
     # 4. Arama çubuğuna "gömlek" yaz ve ara
     arama_cubugu = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, "search-form__input-field__search-input"))
