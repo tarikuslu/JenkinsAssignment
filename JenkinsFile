@@ -7,22 +7,20 @@ pipeline {
                 git url: 'https://github.com/tarikuslu/JenkinsAssignment.git', branch: 'main'
             }
         }
-        stage('Build') {
+        stage('Setup') {
             steps {
-                // Basit bir mesaj yazdır
-                echo 'Building the project...'
+                sh 'pip3 install selenium'
+                sh 'apt-get update && apt-get install -y chromium chromium-driver'
             }
         }
         stage('Test') {
             steps {
-                // Python dosyasını çalıştır
-                sh 'python3 hello.py'
+                sh 'python3 src/selenium_test.py'
             }
         }
         stage('Deploy') {
             steps {
-                // Örnek bir deploy mesajı
-                echo 'Deploying to production...'
+                echo 'Deploying to production... (Bu örnekte sadece mesaj)'
             }
         }
     }
