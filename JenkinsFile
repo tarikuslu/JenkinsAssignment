@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                // GitHub'dan kodu çek
+                git url: 'https://github.com/kullaniciadi/my-jenkins-pipeline-example.git', branch: 'main'
+            }
+        }
+        stage('Build') {
+            steps {
+                // Basit bir mesaj yazdır
+                echo 'Building the project...'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Python dosyasını çalıştır
+                sh 'python3 src/hello.py'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Örnek bir deploy mesajı
+                echo 'Deploying to production...'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline tamamlandı!'
+        }
+        success {
+            echo 'Başarıyla tamamlandı!'
+        }
+        failure {
+            echo 'Bir hata oluştu!'
+        }
+    }
+}
