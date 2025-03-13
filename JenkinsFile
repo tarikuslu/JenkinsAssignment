@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // GitHub'dan kodu çek
-                git url: 'https://github.com/kullaniciadi/my-jenkins-pipeline-example.git', branch: 'main'
+                git url: 'https://github.com/tarikuslu/JenkinsAssignment.git', branch: 'main'
             }
         }
         stage('Build') {
