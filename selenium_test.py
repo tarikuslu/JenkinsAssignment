@@ -20,7 +20,7 @@ try:
     print("Siteye gidildi: " + driver.title)
 
     # Assertion: Sayfanın başlığını kontrol et
-    expected_title = "LC Waikiki"
+    expected_title = "LCW.com: Trendler ve Yenilikçi Online Alışveriş Deneyimi Burada! | LCW"
     assert expected_title in driver.title, f"Başlık '{expected_title}' içermiyor! Bulunan: {driver.title}"
     print("Başlık doğrulandı!")
 
