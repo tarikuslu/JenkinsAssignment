@@ -7,6 +7,15 @@ pipeline {
                 git url: 'https://github.com/tarikuslu/JenkinsAssignment.git', branch: 'main'
             }
         }
+        stage('OS Check') {
+            steps {
+                sh 'uname -a'
+                sh 'cat /etc/os-release || echo "os-release dosyası yok"'
+                sh 'which python3 || echo "python3 bulunamadı"'
+                sh 'which pip3 || echo "pip3 bulunamadı"'
+            }
+        }
+
         stage('Setup') {
             steps {
                 sh 'pip3 install selenium'
@@ -23,6 +32,7 @@ pipeline {
                 echo 'Deploying to production... (Bu örnekte sadece mesaj)'
             }
         }
+
     }
     post {
         always {
