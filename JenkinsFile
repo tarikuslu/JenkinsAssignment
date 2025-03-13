@@ -16,7 +16,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Python dosyasını çalıştır
-                sh 'python3 src/hello.py'
+                sh 'python3 hello.py'
             }
         }
         stage('Deploy') {
