@@ -37,7 +37,7 @@ try:
     sonuc_sayisi = WebDriverWait(driver, 10).until(
         EC.presence_of_all_elements_located((By.CLASS_NAME, "product-list-heading__product-count__count"))
     )
-    assert sonuc_sayisi.is_displayed(), "Arama sonuçları yüklenmedi!"
+    assert sonuc_sayisi[0].is_displayed(), "Arama sonuçları yüklenmedi!"
     print("Arama sonuçları başarıyla yüklendi!")
 
     # Biraz bekle (isteğe bağlı, sonucu gözlemlemek için)
